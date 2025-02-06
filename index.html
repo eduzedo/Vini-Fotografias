@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/swiper-bundle.min.css" />
+
+    <link rel="stylesheet" href="css/slider.css" />
+
+    <title>Vini Fotografias</title>
+</head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: "Open Sans", sans-serif;
+            background-color: white;
+            object-fit: cover;
+            margin: 0;
+            padding: 0;
+        }
+
+        hr {
+            display: block;
+            margin-top: 60px;
+            margin-bottom: 60px;
+            margin-left: 300px;
+            margin-right: 300px;
+            border-style: inset;
+            border-width: 1px;
+        }
+
+        .content {
+            padding: 20px;
+        }
+
+        header {
+            background-color: white;
+            padding: 20px;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            box-shadow: 0 5px 20px #868686;
+        }
+
+        header .logo img {
+            width: 200px;
+        }
+
+        header .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: auto;
+            margin-right: 20px;
+            gap: 30px;
+        }
+
+        header a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .sobre {
+            display: flex;
+            justify-content: center; /* Centraliza horizontalmente */
+            align-items: center; /* Centraliza verticalmente */
+            text-align: left; /* Garante que o texto fique alinhado à esquerda */
+        }
+
+        .sobre .sobre-foto img {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .sobre .sobre-texto {
+            padding-left: 20px;
+        }
+
+        .sobre .sobre-texto h1 {
+            font-size: 35px;
+        }
+
+        .sobre .sobre-texto p {
+          font-size: 18px;
+        }
+        
+        .depoimentos-h1 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .depoimentos-h1 h1 {
+            margin-top: 0;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .depoimentos-h1 p {
+            margin-top: 0;
+            padding-top: 0;
+            margin-bottom: 60px;
+        }
+
+        .depoimentos-div {
+            display: flex;
+            padding: 20px;
+            margin-left: 300px;
+            margin-right: 300px;
+            background-color: #ffffff;
+            border-radius: 40px;
+            box-shadow: 0 10px 20px #868686;
+            margin-bottom: 30px;
+        }
+
+        .depoimenots-div-texto h1 {
+            margin-bottom: 0;
+        }
+
+        .depoimenots-div-texto h3 {
+            margin-top: 0;
+        }
+
+        .depoimentos-div-foto img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .orcamento-div {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+          gap: 50px;
+          margin-top: 100px;
+        }
+
+        .orcamento-div .whatsapp {
+            margin-top: 10px;
+            margin-bottom: 40px;
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+        }
+
+        .orcamento-div .whatsapp a{
+            text-decoration: none;
+            color: white;
+        }
+
+        .orcamento-div .whatsapp img {
+            width: 20px;
+            padding-right: 10px;
+        }
+
+        .orcamento-div .whatsapp button {
+            border: none;
+            border-radius: 40px;
+            cursor: pointer;
+            color: white;
+            padding: 20px;
+            font-size: 20px;
+            background-color: grey;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .orcamento-div .whatsapp button:hover {
+            background-color: black;
+            transform: scale(1.1);
+        }
+
+        .instagram-div, .instagram-div a {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 10px;
+          text-align: left;
+          text-decoration: none;
+          color: inherit;
+        }
+
+        .instagram-div img {
+          width: 50px;
+          object-fit: cover;
+        }
+
+        footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        background-color: #545454;
+        width: 100%;
+        }
+
+        footer .redes-sociais a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        footer .dev-footer {
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            margin: 0;
+            color: black;
+            background-color: #ffffff
+        }
+
+        footer .dev-footer a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /*SCROLL ANIMAÇÃO*/
+
+        .hidden {
+            opacity: 0;
+            filter: blur(15px);
+            transform: translateX(-100%);
+            transition: all 1s;
+        }
+
+        .show {
+            opacity: 1;
+            filter: blur(0);
+            transform: translateX(0);
+            transition: all 1s;
+        }
+
+         /*RESPONSIVIDADE*/
+
+    @media only screen and (max-width: 950px){
+
+      .content {
+          width: 100%;
+      }
+
+    }
+
+    @media only screen and (max-width: 600px) {
+
+      * {
+      box-sizing: border-box;
+      }
+
+      header {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      margin: 0;
+      padding: 0;
+      }
+
+      .navbar {
+      width: 100%;
+      margin: 0;
+      padding: 10px;
+      }
+
+      .sobre {
+        margin-top: 30px;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .sobre .sobre-texto {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+      }
+
+      hr {
+        display: block; 
+        width: 80%; 
+        margin: 30px auto; 
+        border: none;
+        border-top: 1px solid #868686; 
+      }
+
+      .depoimentos-div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        margin-left: 0;
+        margin-right: 0;
+      }
+
+      .orcamento-div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+        gap: 0;
+      }
+
+      footer {
+      margin-top: 50px;
+      }
+    }
+
+    </style>
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="img/vini-logo.png" alt="">
+        </div>
+        <div class="navbar">
+            <a href="#sobremim">Sobre Mim</a>
+            <a href="#portfolio">Portfólio</a>
+            <a href="#depoimentos">Depoimentos</a>
+            <a href="#orcamento">Orçamento</a>
+        </div>
+    </header>
+
+    <div class="content">
+        <section id="portfolio">
+            <div class="port-img">
+                <div class="container-main">
+                    <div class="container swiper">
+                        <div class="slide-container">
+                          <div class="card-wrapper swiper-wrapper">
+                            <div class="card-slide swiper-slide">
+                              <div class="image-box">
+                                <img src="img/i1.jpg" alt="" />
+                              </div>
+                              <div class="profile-details">
+                                <div class="name-job">
+                                  <h3 class="name">Ensaio família</h3>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="card-slide swiper-slide">
+                              <div class="image-box">
+                                <img src="img/i2.jpg" alt="" />
+                              </div>
+                              <div class="profile-details">
+                                <div class="name-job">
+                                  <h3 class="name">Pré-Casamento</h3>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="card-slide swiper-slide">
+                              <div class="image-box">
+                                <img src="img/i3.jpg" alt="" />
+                              </div>
+                              <div class="profile-details">
+                                <div class="name-job">
+                                  <h3 class="name">Ensaio Feminino</h3>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="card-slide swiper-slide">
+                              <div class="image-box">
+                                <img src="img/i4.jpg" alt="" />
+                              </div>
+                              <div class="profile-details">
+                                <div class="name-job">
+                                  <h3 class="name">Casamento</h3>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="card-slide swiper-slide">
+                              <div class="image-box">
+                                <img src="img/i5.jpg" alt="" />
+                              </div>
+                              <div class="profile-details">
+                                <div class="name-job">
+                                  <h3 class="name">Corporativo</h3>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="card-slide swiper-slide">
+                                <div class="image-box">
+                                  <img src="img/i6.jpg" alt="" />
+                                </div>
+                                <div class="profile-details">
+                                  <div class="name-job">
+                                    <h3 class="name">Ensaio Formatura</h3>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="card-slide swiper-slide">
+                                <div class="image-box">
+                                  <img src="img/i7.jpg" alt="" />
+                                </div>
+                                <div class="profile-details">
+                                  <div class="name-job">
+                                    <h3 class="name">Ensaio de Aniversário</h3>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <div class="card-slide swiper-slide">
+                                <div class="image-box">
+                                  <img src="img/i8.jpg" alt="" />
+                                </div>
+                                <div class="profile-details">
+                                  <div class="name-job">
+                                    <h3 class="name">Casamento Judaico</h3>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <div class="card-slide swiper-slide">
+                                <div class="image-box">
+                                  <img src="img/i9.jpg" alt="" />
+                                </div>
+                                <div class="profile-details">
+                                  <div class="name-job">
+                                    <h3 class="name">Aniversário Infantil</h3>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <div class="card-slide swiper-slide">
+                                <div class="image-box">
+                                  <img src="img/i10.jpg" alt="" />
+                                </div>
+                                <div class="profile-details">
+                                  <div class="name-job">
+                                    <h3 class="name">Batizado</h3>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <div class="card-slide swiper-slide">
+                                <div class="image-box">
+                                  <img src="img/i11.jpg" alt="" />
+                                </div>
+                                <div class="profile-details">
+                                  <div class="name-job">
+                                    <h3 class="name">Chá Revelação</h3>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <div class="card-slide swiper-slide">
+                                <div class="image-box">
+                                  <img src="img/i12.jpg" alt="" />
+                                </div>
+                                <div class="profile-details">
+                                  <div class="name-job">
+                                    <h3 class="name">Gestante</h3>
+                                  </div>
+                                </div>
+                              </div>
+
+                          </div>
+                        </div>
+                        <div class="swiper-button-next swiper-navBtn"></div>
+                        <div class="swiper-button-prev swiper-navBtn"></div>
+                        <div class="swiper-pagination"></div>
+                      </div>
+            </div>
+        </section>
+
+        <section id="sobremim">
+            <div class="sobre hidden">
+                <div class="sobre-foto">
+                    <img src="img/vini-foto.jpg" alt="">
+                </div>
+                <div class="sobre-texto">
+                    <h1>Sobre Mim</h1>
+                    <p>Olá! Me chamo Vinicius, sou fotógrafo em Euclides da Cunha, na Bahia, há mais de 4 anos. <br> Vai ser um prazer eternizar esse momento tão lindo e especial.</p>
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="depoimentos">
+
+            <div class="depoimentos-h1">
+                <h1>Depoimentos</h1>
+                <p>Confira abaixo depoimentos de alguns clientes!</p>
+            </div>
+
+            <div class="depoimentos-div hidden">
+                <div class="depoimenots-div-texto">
+                    <h1>Camilla Santtos</h1>
+                    <h3><i>Ensaio Feminino</i></h3>
+                    <p>Que lindaasss! Que trabalho incrível Vi! Ameei! Foi tudo incrível, já estou pronta pros próximos cliques 🥰🥰💖
+                    </p>
+                </div>
+                <div class="depoimentos-div-foto">
+                    <img src="img/camillasantos.jpg" alt="">
+                </div>
+            </div>
+
+            <div class="depoimentos-div hidden">
+                <div class="depoimenots-div-texto">
+                    <h1>Sabrina Cortes</h1>
+                    <h3><i>Ensaio Pré-Casamento</i></h3>
+                    <p>Amamos as fotos! 😍 Obrigada por todo suporte que tem nos dado! 🤍✨
+                    </p>
+                </div>
+                <div class="depoimentos-div-foto">
+                    <img src="img/sabrinacortes.jpg" alt="">
+                </div>
+            </div>
+
+            <div class="depoimentos-div hidden">
+                <div class="depoimenots-div-texto">
+                    <h1>Brenda Makeuy</h1>
+                    <h3><i>Ensaio Corporativo</i></h3>
+                    <p>Você é incrível, seu trabalho é perfeito!
+                        Obrigadaaaaa! Eu ameiiiii! 🤍🤍🤍📷                        
+                    </p>
+                </div>
+                <div class="depoimentos-div-foto">
+                    <img src="img/brendamakeuy.jpg" alt="">
+                </div>
+            </div>
+
+            <div class="depoimentos-div hidden">
+                <div class="depoimenots-div-texto">
+                    <h1>Caike Miranda</h1>
+                    <h3><i>Casamento</i></h3>
+                    <p>Obrigado pelo registro desse dia tão importante em minha vida. Deus abençoe sempre🙏🏽
+                    </p>
+                </div>
+                <div class="depoimentos-div-foto">
+                    <img src="img/caikemiranda.jpg" alt="">
+                </div>
+            </div>
+
+            <div class="depoimentos-div hidden">
+                <div class="depoimenots-div-texto">
+                    <h1>Thaylane Lima</h1>
+                    <h3><i>Casamento</i></h3>
+                    <p>Boa noite vini, quero agradecer pelas fotos incríveis do meu casamento,  cada foto registrou cada momento único do nosso casamento, as fotos da cerimônia ficaram lindas, sem contar com a iluminação q estava perfeita, parabéns pelo excelente trabalho, nem precisa pedir indicação, ja estou te indicando pra todos q conheço, felicidades e muito sucesso.
+                    </p>
+                </div>
+                <div class="depoimentos-div-foto hidden">
+                    <img src="img/thaylanelima.jpg" alt="">
+                </div>
+            </div>
+
+        </section>
+
+        <section id="orcamento">
+          
+          <div class="orcamento-div">
+
+                <div class="whatsapp">
+                    <a href="https://wa.me/message/6UUX6H4YZTKVA1" target="_blank"><button><img src="img/whatsapp-xxl.png" alt="">Faça seu orçamento!</button></a>
+                </div>
+            
+                <div class="instagram-div">
+                  <a href="https://www.instagram.com/vini_fotografiass/" target="_blank">
+                    <img src="img/instagram-logo.png" alt="">
+                    <p>Me acompanhe no <br> meu Instagram!</p>
+                  </a>
+                </div>
+
+          </div>
+
+        </section>
+
+    </div>
+
+    <footer>
+      <div class="dev-footer">
+          <p>Desenvolvido por <strong><a href="https://www.linkedin.com/in/eduzedo" target="_blank">Edu D'Azevedo.</a></strong></p>
+      </div>
+  </footer>
+
+    <script src="js/swiper-bundle.min.js"></script>
+    <script src="js/script.js"></script>
+
+</body>
+</html>
